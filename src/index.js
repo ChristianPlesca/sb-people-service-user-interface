@@ -5,11 +5,12 @@ import { createStore, applyMiddleware, compose } from "redux";
 
 import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
+import thunk from "redux-thunk";
 
 const composeEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSIONS_COMPOSE__ || compose;
 
-const store = createStore(null, composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(() => {}, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <Provider store={store}>
