@@ -1,4 +1,9 @@
-import { LOGIN_USER, AUTH_FAILED, USERNAME_CHANGED } from "../actions/types";
+import {
+  LOGIN_USER,
+  AUTH_FAILED,
+  USERNAME_CHANGED,
+  PASSWORD_CHANGED,
+} from "../actions/types";
 
 const INITIAL_STATE = {
   username: "",
@@ -12,6 +17,8 @@ export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case USERNAME_CHANGED:
       return { ...state, username: action.payload };
+    case PASSWORD_CHANGED:
+      return { ...state, password: action.payload };
     case LOGIN_USER:
       return null;
     case AUTH_FAILED:
