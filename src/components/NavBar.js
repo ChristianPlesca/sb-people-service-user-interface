@@ -1,20 +1,19 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import logo from '../logo.svg'
-
+import logo from "../logo.svg";
 
 const NavigationBar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="/">
-      <img
-        src={logo}
-        width="30"
-        height="30"
-        className="d-inline-block align-top"
-        alt="React Bootstrap logo"
-      /></Navbar.Brand>
+        <img
+          src={logo}
+          width="30"
+          height="30"
+          className="d-inline-block align-top"
+          alt="React Bootstrap logo"
+        />
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
