@@ -1,13 +1,17 @@
 import React from "react";
 import { Form, Button, Jumbotron } from "react-bootstrap";
 import { connect } from "react-redux";
-import { usernameChanged } from "../../actions";
+import { usernameChanged, passwordChanged } from "../../actions";
 
 const LoginForm = (props) => {
   const onUsernameChange = ({ target }) => {
     props.usernameChanged(target.value);
   };
-  console.log(props.username);
+
+  const onPasswordChange = ({ target }) => {
+    props.passwordChanged(target.value);
+  };
+  console.log(props.password, props.username);
   return (
     <div className="container" style={{ marginTop: "200px" }}>
       <Jumbotron>
@@ -16,7 +20,7 @@ const LoginForm = (props) => {
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Username</Form.Label>
             <Form.Control
-              onChange={(text) => onUsernameChange(text)}
+              onChange={onUsernameChange}
               type="text"
               placeholder="Username"
               value={props.username}
@@ -28,7 +32,12 @@ const LoginForm = (props) => {
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control
+              onChange={onPasswordChange}
+              type="password"
+              placeholder="Password"
+              value={props.password}
+            />
           </Form.Group>
           <Form.Group controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Remember Me" />
@@ -44,6 +53,9 @@ const LoginForm = (props) => {
 
 const mapStateToProps = ({ auth }) => ({
   username: auth.username,
+  password: auth.password,
 });
 
-export default connect(mapStateToProps, { usernameChanged })(LoginForm);
+export default connect(mapStateToProps, { usernameChanged, passwordChanged })(
+  LoginForm
+);
